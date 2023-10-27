@@ -1,0 +1,43 @@
+#include <stdio.h>
+void binary(int n)
+{
+    int i;
+    for(i=32;i>=0;i--)
+    {
+        printf("%d",((n>>i)&1));
+    }
+}
+
+ int left_rotate( int num, int n) {
+  return (num << n) | (num >> (32 - n));
+}
+
+ int right_rotate( int num, int n) {
+  return (num >> n) | (num << (32 - n));
+}
+
+void main()
+{
+ int num = 0, result;
+	int n = 0;
+	
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    printf("Binary represntation of the input number:\n");
+    binary(num);
+    
+    printf("\nenter bits to rotate: ");
+    scanf("%d", &n);
+    
+    result = left_rotate(num, n);
+    printf("\n\nAfter left rotating %d bits:\n", n);
+    binary(result);
+    
+    result = right_rotate(num, n);
+    printf("\n\nAfter right rotating %d bits:\n", n);
+    binary(result);
+    
+    printf("\n");
+}
+
